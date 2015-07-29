@@ -3,3 +3,4 @@ services:
 language: java
 jdk:
   - oraclejdk8
+script: which jdk_switcher
