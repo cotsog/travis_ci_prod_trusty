@@ -4,8 +4,8 @@ services:
 language: cpp
 compiler: gcc
 script:
-  - gcc --version
-  - g++ --version
+  - gcc-5 --version
+  - g++-5 --version
 addons:
   apt:
     sources:
