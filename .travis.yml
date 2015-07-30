@@ -3,3 +3,4 @@ services:
   - docker
 language: cpp
 compiler: gcc
+script: g++ --version
