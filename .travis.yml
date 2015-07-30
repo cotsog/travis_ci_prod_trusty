@@ -1,10 +1,5 @@
 sudo: required
 services:
   - docker
-script:
-  - apt-cache showpkg cmake
-  - cmake --version
-addons:
-  apt:
-    packages:
-      - cmake
+language: cpp
+compiler: gcc
