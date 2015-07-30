@@ -1,6 +1,10 @@
 sudo: required
 services:
   - docker
-language: java
-jdk:
-  - oraclejdk8
+script:
+  - apt-cache showpkg cmake
+  - cmake --version
+addons:
+  apt:
+    packages:
+      - cmake
