@@ -6,6 +6,7 @@ compiler: gcc
 script:
   - gcc-5 --version
   - g++-5 --version
+  - mysql --version
 addons:
   apt:
     sources:
