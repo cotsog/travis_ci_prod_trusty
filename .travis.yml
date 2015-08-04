@@ -2,15 +2,9 @@ sudo: required
 services:
   - docker
 language: cpp
-compiler: gcc
-script:
-  - gcc-5 --version
-  - g++-5 --version
-  - mysql --version
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
+    - ubuntu-sdk-team
     packages:
-    - gcc-5
-    - g++-5
+    - qtdeclarative5-dev
