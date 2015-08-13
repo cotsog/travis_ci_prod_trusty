@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker
 language: python
-before_install: pip install twine
+install: echo install
 script: echo test
 deploy:
   provider: pypi
