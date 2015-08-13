@@ -2,4 +2,11 @@ sudo: required
 services:
   - docker
 language: python
+before_install: pip install twine
 script: echo test
+deploy:
+  provider: pypi
+  user: username
+  password: password
+  server: https://mypackageindex.com/index
+  edge: true
