@@ -2,3 +2,7 @@ sudo: false
 group: dev
 install: echo install
 script: mysql --version
+addons:
+  apt:
+    package:
+      - mysql-server-5.6
