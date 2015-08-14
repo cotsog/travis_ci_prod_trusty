@@ -1,6 +1,4 @@
-sudo: required
-services:
-  - docker
+sudo: false
 group: dev
 install: echo install
 script: mysql --version
