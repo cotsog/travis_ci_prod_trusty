@@ -1,7 +1,6 @@
 sudo: required
 services:
   - docker
-group: dev
 install:
   - sudo apt-get update
   - sudo apt-get install mysql-server-5.6
