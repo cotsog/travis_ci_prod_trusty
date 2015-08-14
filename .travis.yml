@@ -1,12 +1,6 @@
 sudo: required
 services:
   - docker
-language: python
+group: dev
 install: echo install
-script: echo test
-deploy:
-  provider: pypi
-  user: username
-  password: password
-  server: https://mypackageindex.com/index
-  edge: true
+script: mysql --version
