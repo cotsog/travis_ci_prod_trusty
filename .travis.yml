@@ -2,18 +2,6 @@ sudo: required
 services:
   - docker
 language: android
-android:
-  components:
-    - platform-tools
-    - tools
-    - build-tools-22.0.1
-    - android-22
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-    - addon-google_apis_x86-google-19
-    - sys-img-x86-addon-google_apis-google-19
-  licenses:
-    - android-sdk-license-.+
 script:	
+  - android list sdk
   - android list target
