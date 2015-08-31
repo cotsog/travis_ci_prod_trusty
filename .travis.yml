@@ -1,7 +1,6 @@
 sudo: required
 services:
   - docker
-language: android
+language: python
 script:	
-  - android list sdk
-  - android list target
+  - python -V
