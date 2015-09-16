@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker
 before_install:
-  - cat /etc/default/docker
+  - sudo cat /etc/default/docker
   - echo 'DOCKER_OPTS="-s devicemapper"' | sudo tee -a /etc/default/docker > /dev/null
-  - cat /etc/default/docker
+  - sudo cat /etc/default/docker
   - service docker restart
