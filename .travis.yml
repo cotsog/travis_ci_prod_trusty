@@ -3,5 +3,5 @@ services:
   - docker
 before_install:
   - docker --version
-  - sudo apt-get update && sudo apt-get upgrade lxc-docker
+  - curl -sSL https://get.docker.com/ | sudo sh
   - docker --version
