@@ -1,5 +1,9 @@
 sudo: required
 services:
   - docker
-language: php
-script: php --version
+before_install:
+  - sudo cat /etc/default/docker
+  - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null
+  - sudo cat /etc/default/docker
+  - sudo service docker restart
+  - sudo docker pull weldpua2008/docker-ansible:centos6_v1.9.2
