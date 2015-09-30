@@ -4,13 +4,7 @@ services:
 before_install:
   - sudo apt-get update
   - sudo apt-get upgrade lxc-docker
-  - sudo ps aux | grep docker
-  - ps aux | grep docker
   - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null
   - sudo service docker restart
-  - sudo ps aux | grep docker
-  - ps aux | grep docker
-  - sudo ls -al /var/run/docker.sock
-  - sudo docker -d &
   - sudo docker pull weldpua2008/docker-ansible:centos6_v1.9.2
   - sudo ls -al /var/run/docker.sock
