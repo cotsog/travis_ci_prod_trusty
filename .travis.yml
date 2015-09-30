@@ -3,7 +3,7 @@ services:
   - docker
 before_install:
   - sudo apt-get update
-  - sudo apt-get lxc-docker
+  - sudo apt-get upgrade lxc-docker
   - sudo ps aux | grep docker
   - ps aux | grep docker
   - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null
