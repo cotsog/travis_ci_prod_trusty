@@ -10,5 +10,6 @@ before_install:
   - sleep 120
   - sudo ps aux | grep docker
   - sudo ls -al /var/run/docker.sock
+  - sudo docker -d
   - sudo docker pull weldpua2008/docker-ansible:centos6_v1.9.2
   - sudo ls -al /var/run/docker.sock
