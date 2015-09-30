@@ -6,7 +6,7 @@ before_install:
   - ps aux | grep docker
   - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null
   - sudo service docker restart
-  - sleep 10
+  - sleep 5
   - sudo ps aux | grep docker
   - ps aux | grep docker
   - sudo ls -al /var/run/docker.sock
