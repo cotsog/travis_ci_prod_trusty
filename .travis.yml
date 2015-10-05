@@ -6,5 +6,5 @@ env:
 before_install:
   - gcloud version
   - curl https://sdk.cloud.google.com | bash
-  - cat /home/travis/google-cloud-sdk/path.bash.inc
+  - ls -al google-cloud-sdk/bin/
   
