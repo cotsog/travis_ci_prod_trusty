@@ -3,5 +3,5 @@ services:
   - docker
 before_install:
   - gcloud version
-  - gcloud preview docker help
+  - curl https://sdk.cloud.google.com | bash
   
