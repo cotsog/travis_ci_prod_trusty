@@ -6,5 +6,6 @@ env:
 before_install:
   - gcloud version
   - curl https://sdk.cloud.google.com | bash
-  - find .
+  - gcloud version
+  - bash -c "gcloud version"
   
