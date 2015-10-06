@@ -7,5 +7,5 @@ before_install:
   - gcloud version
   - curl https://sdk.cloud.google.com | bash
   - gcloud version
-  - bash -c "gcloud version"
-  
+  - bash --login
+  -  gcloud version
