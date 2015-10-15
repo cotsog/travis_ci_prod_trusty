@@ -1,7 +1,7 @@
 sudo: required
-language: python
+language: php
 dist: trusty
-before_install:
-  - pyenv versions
+services:
+  - docker
 install: true
 script: true
