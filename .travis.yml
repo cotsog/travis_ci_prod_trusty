@@ -1,9 +1,6 @@
 sudo: required
-services:
-  - docker
-env:
-  - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+dist: trusty
 before_install:
-  - gcloud version
-  - curl https://sdk.cloud.google.com | bash
-  - bash --login "./gcloud.sh"
+  - pyenv versions
+install: true
+script: true
