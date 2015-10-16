@@ -1,6 +1,7 @@
 sudo: required
-language: php
-services:
-  - docker
+dist: trusty
+language: python
 install: true
-script: true
+script: 
+  - python -V
+  - python2 -V
