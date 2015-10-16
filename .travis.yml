@@ -3,5 +3,6 @@ dist: trusty
 language: python
 install: true
 script: 
+  - pyenv versions
   - python -V
   - python2 -V
