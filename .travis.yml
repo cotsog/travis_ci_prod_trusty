@@ -4,5 +4,6 @@ language: generic
 install: true
 script: 
   - rbenv versions
+  - ruby -v
   - python -V
   - python2 -V
