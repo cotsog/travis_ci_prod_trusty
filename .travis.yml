@@ -1,6 +1,6 @@
 sudo: required
 dist: trusty
-language: generic
+language: ruby
 install: true
 script: 
   - rbenv versions
