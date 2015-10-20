@@ -1,6 +1,8 @@
 sudo: required
-dist: trusty
-language: ruby
+services:
+  - docker
+language: node_js
+node_js: 0.12
 install: true
 script:
   - phantomjs --version
