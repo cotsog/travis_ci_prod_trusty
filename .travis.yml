@@ -2,7 +2,8 @@ sudo: required
 dist: trusty
 language: ruby
 install: true
-script: 
+script:
+  - phantomjs --version
   - rbenv versions
   - ruby -v
   - python -V
