@@ -1,13 +1,7 @@
 sudo: required
 services:
   - docker
-language: node_js
-node_js: 0.12
+  - mysql
+language: ruby
 install: true
-script:
-  - which phantomjs
-  - phantomjs --version
-  - rbenv versions
-  - ruby -v
-  - python -V
-  - python2 -V
+script: true
