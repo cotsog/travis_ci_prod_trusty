@@ -1,7 +1,5 @@
 sudo: required
-services:
-  - docker
-  - mysql
+dist: trusty
 language: ruby
 install: true
-script: true
+script: ls -al /dev
