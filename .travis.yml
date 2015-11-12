@@ -1,5 +1,7 @@
 sudo: required
 dist: trusty
-language: ruby
+language: go
+services:
+  - docker
 install: true
-script: ls -al /dev
+script: docker -v
