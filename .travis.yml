@@ -1,7 +1,5 @@
 sudo: required
 dist: trusty
-language: go
-services:
-  - docker
-install: true
-script: docker -v
+language: ruby
+install: sudo apt-get install tomcat7=7.0.52-1
+script: sudo service tomcat7 status
