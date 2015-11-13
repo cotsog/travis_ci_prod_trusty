@@ -3,5 +3,5 @@ dist: trusty
 language: ruby
 install:
   - sudo apt-get update
-  - sudo apt-get install tomcat7=7.0.52-1
+  - sudo apt-get -y install tomcat7=7.0.52-1
 script: sudo service tomcat7 status
