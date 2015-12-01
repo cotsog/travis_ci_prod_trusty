@@ -4,6 +4,7 @@ services:
   - mongodb
 matrix:
   include:
+    - sudo: false
     - sudo: required
     - sudo: required
       dist: trusty
