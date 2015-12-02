@@ -1,14 +1,8 @@
 sudo: false
 language: ruby
-services:
-  - mongodb
-matrix:
-  include:
-    - sudo: false
-    - sudo: required
-    - sudo: required
-      dist: trusty
+dist: trusty
 
-install: true
+cache: bundler
+
 script:
-  - mongod --version
+  - true
