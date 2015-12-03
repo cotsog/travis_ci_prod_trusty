@@ -6,7 +6,7 @@ services:
   - docker
   
 env:
-  - JRUBY_OPTS="--client -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-Xss2m
+  - JRUBY_OPTS="--client -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-Xss2m"
 
 install: travis_wait bundle install --jobs=4 --retry=3 --deployment
 
