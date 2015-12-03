@@ -1,8 +1,11 @@
 sudo: required
 language: ruby
-dist: trusty
+rvm: jruby
+services:
+  - docker
 
 cache: bundler
 
-script:
-  - true
+install: travis_wait bundle install --jobs=4 --retry=3 --deployment
+
+script: true
