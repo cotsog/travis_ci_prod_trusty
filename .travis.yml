@@ -1,13 +1,9 @@
 sudo: required
-language: ruby
-rvm:
-  - jruby
 services:
   - docker
-  
 env:
-  - JRUBY_OPTS="--client -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1 -J-Xss2m"
-
-install: bundle install --jobs=4 --retry=3
-
-script: true
+  - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+before_install:
+  - gcloud version
+  - curl https://sdk.cloud.google.com | bash
+  - bash --login "./gcloud.sh components update kubectl"
