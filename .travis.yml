@@ -6,4 +6,4 @@ env:
 before_install:
   - gcloud version
   - curl https://sdk.cloud.google.com | bash
-  - bash -l -c "./gcloud.sh components update kubectl"
+  - bash -l ./gcloud.sh components update kubectl
