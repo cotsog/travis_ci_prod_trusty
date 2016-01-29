@@ -9,3 +9,7 @@ before_install:
   - curl https://sdk.cloud.google.com | bash
   - bash -l ./gcloud.sh version
   - bash -l ./gcloud.sh components update kubectl
+
+install: true
+
+script: true
