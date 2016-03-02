@@ -1,14 +1,22 @@
+language: python
 sudo: required
-services:
-  - docker
-env:
-  - CLOUDSDK_CORE_DISABLE_PROMPTS=1
-before_install:
-  - gcloud version
-  - gcloud components update kubectl || true
-  - curl https://sdk.cloud.google.com | bash
-  - bash -l ./gcloud.sh version
-  - bash -l ./gcloud.sh components update kubectl
+dist: trusty
+
+# look at https://github.com/pypa/pip for examples?
+# https://docs.travis-ci.com/user/multi-os/
+python:
+  - "2.7"
+
+virtualenv:
+  system_site_packages: true
+
+addons:
+  apt:
+    packages:
+      - python-dbus
+      - python3-dbus
+      - python-gi
+      - python3-gi
 
 install: true
 
