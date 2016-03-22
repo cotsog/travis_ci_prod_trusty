@@ -1,23 +1,19 @@
-language: python
 sudo: required
-dist: trusty
+services:
+  - docker
+  - redis-server
+  - postgresql
 
-# look at https://github.com/pypa/pip for examples?
-# https://docs.travis-ci.com/user/multi-os/
-python:
-  - "2.7"
-
-virtualenv:
-  system_site_packages: true
-
-addons:
-  apt:
-    packages:
-      - python-dbus
-      - python3-dbus
-      - python-gi
-      - python3-gi
+matrix:
+  include:
+    - env: POSTGRES_VESRION="default
+    - env: POSTGRES_VESRION="9.3
+      addons:
+        postgresql: "9.3"
 
 install: true
 
-script: true
+script:
+  - docker info 
+  - psql --version
+  - redis-server --version
