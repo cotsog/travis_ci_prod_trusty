@@ -3,5 +3,7 @@ services:
   - docker
 install: true
 script:
+  - docker version
   - sudo apt-get update -qq
   - sudo apt-get -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confnew install docker-engine
+  - docker version
