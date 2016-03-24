@@ -1,5 +1,6 @@
 sudo: required
 dist: trusty
 install:
-  - sudo apt-get install g++-arm-linux-gnueabihf g++-aarch64-linux-gnu
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install g++-arm-linux-gnueabihf g++-aarch64-linux-gnu
 script: true
