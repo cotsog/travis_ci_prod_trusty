@@ -1,18 +1,5 @@
-language: ruby
-rvm: 2.3.0
-services:
-  - postgresql
-addons:
-  postgresql: "9.4"
 sudo: required
-dist: precise
-group: edge
-before_install:
- - export DEBIAN_FRONTEND=noninteractive;
- - sudo -E apt-get -yq update &>> ~/apt-get-update.log;
- - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install postgresql-9.4-postgis-2.2
-install: true
-before_script:
-  - psql -U postgres -c "create extension postgis"
-script:
-  - true
+dist: trusty
+install:
+  - sudo apt-get install libstdc++-4.8-dev-arm64-cross libstdc++6-4.8-dbg-arm64-cross libstdc++6-arm64-cross
+script: true
