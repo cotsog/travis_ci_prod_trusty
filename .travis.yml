@@ -2,5 +2,5 @@ sudo: required
 dist: trusty
 install:
   - sudo apt-get -qq update
-  - sudo apt-get -o Dpkg::Options::="--force-overwrite" -qq install -f g++-arm-linux-gnueabihf g++-aarch64-linux-gnu
+  - sudo apt-get -o Dpkg::Options::="--force-overwrite" -f -qq install g++-arm-linux-gnueabihf g++-aarch64-linux-gnu
 script: true
