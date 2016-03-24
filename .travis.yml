@@ -1,9 +1,18 @@
-sudo: required
+language: ruby
+rvm: 2.3.0
 services:
-  - docker
+  - postgresql
+addons:
+  postgresql: "9.4"
+sudo: required
+dist: precise
+group: edge
+before_install:
+ - export DEBIAN_FRONTEND=noninteractive;
+ - sudo -E apt-get -yq update &>> ~/apt-get-update.log;
+ - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install postgresql-9.4-postgis-2.2
 install: true
+before_script:
+  - psql -U postgres -c \"create extension postgis\"
 script:
-  - docker version
-  - sudo apt-get update -qq
-  - sudo apt-get -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold install docker-engine
-  - docker version
+  - true
