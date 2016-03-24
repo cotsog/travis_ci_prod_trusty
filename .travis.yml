@@ -13,6 +13,6 @@ before_install:
  - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install postgresql-9.4-postgis-2.2
 install: true
 before_script:
-  - psql -U postgres -c \"create extension postgis\"
+  - psql -U postgres -c "create extension postgis"
 script:
   - true
