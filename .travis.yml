@@ -5,6 +5,7 @@ before_install:
   - sudo service postgresql stop
   - export DEBIAN_FRONTEND=noninteractive;
   - sudo -E apt-get -yq update &>> ~/apt-get-update.log;
+  - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install postgresql-9.5
   - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install postgresql-9.5-postgis-2.2
   - sudo service postgresql start
   - sleep 30
