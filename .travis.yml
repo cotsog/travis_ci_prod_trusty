@@ -10,5 +10,7 @@ before_install:
   - sudo service postgresql start
   - sleep 30
   - service --status-all
+  - export LC_ALL="en_US.UTF-8"
+  - sudo pg_createcluster 9.5 main --start
 script:
   - psql -c 'create database nucleus;' -U postgres -h 127.0.0.1
