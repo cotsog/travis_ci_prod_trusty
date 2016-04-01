@@ -9,5 +9,6 @@ before_install:
   - sudo -E apt-get -yq --no-install-suggests --no-install-recommends --force-yes install postgresql-9.5-postgis-2.2
   - sudo service postgresql start
   - sleep 30
+  - service --status-all
 script:
   - psql -c 'create database nucleus;' -U postgres -h 127.0.0.1
