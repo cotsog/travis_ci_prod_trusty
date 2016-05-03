@@ -8,3 +8,9 @@ matrix:
       dist: trusty
     - sudo: required
       dist: precise
+    - sudo: required
+      dist: trusty
+    - sudo: required
+      dist: precise
+    - sudo: required
+      dist: trusty
