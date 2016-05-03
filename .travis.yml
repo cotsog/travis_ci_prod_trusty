@@ -1,10 +1,10 @@
-
-sudo: required
-dist: precise
 group: edge
 language: elixir
 install: true
 script: true
 matrix:
   include:
-    - dist: trusty
+    - sudo: required
+      dist: trusty
+    - sudo: required
+      dist: precise
