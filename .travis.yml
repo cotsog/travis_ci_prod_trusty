@@ -1,7 +1,10 @@
-# Trigger 4
+
 sudo: required
-dist: trusty
+dist: precise
 group: edge
 language: elixir
 install: true
 script: true
+matrix:
+  include:
+    - dist: trusty
