@@ -1,7 +1,17 @@
-language: erlang
-sudo: required
-dist: trusty
-install: true
-script:
-  - cat /etc/resolv.conf || true
-  - sudo cat /etc/resolv.conf || true
+language: android
+jdk	oraclejdk7
+android	
+  components:
+    - platform-tools
+    - tools
+    - build-tools-23.0.1
+    - android-22
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-support
+    - extra-android-m2repository
+matrix:
+  include:
+    - sudo: required
+    - sudo: required
+      dist: trusty
