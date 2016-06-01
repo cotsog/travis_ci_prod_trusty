@@ -6,8 +6,7 @@ dist: trusty
 before_install:
   - sudo add-apt-repository -y ppa:h-rayflood/llvm
   - sudo apt-get update
-  - sudo apt-get dist-upgrade
-  - sudo apt-get install clang-2.9
+  - sudo apt-get -y install clang-2.9
   
 install: true
 
