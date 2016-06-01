@@ -1,16 +1,14 @@
-group: edge
-language: elixir
+language: cpp
+
+sudo: required
+dist: trusty
+
+before_install:
+  - sudo add-apt-repository ppa:h-rayflood/llvm
+  - sudo apt-get update
+  - sudo apt-get dist-upgrade
+  - sudo apt-get install clang-2.9
+  
 install: true
+
 script: true
-matrix:
-  include:
-    - sudo: required
-      dist: trusty
-    - sudo: required
-      dist: precise
-    - sudo: required
-      dist: trusty
-    - sudo: required
-      dist: precise
-    - sudo: required
-      dist: trusty
