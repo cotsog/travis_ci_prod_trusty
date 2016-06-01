@@ -9,6 +9,9 @@ before_install:
   - sudo apt-get -y install clang-2.9
   - echo $PATH
   - which clang
+  - export PATH=`echo $PATH | sed -e 's/:\/usr\/local\/clang-3.5.0\/bin//'`
+  - echo $PATH
+  - which clang
   - clang --version
   - /usr/bin/clang-2.9 --version
   
