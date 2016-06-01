@@ -7,7 +7,9 @@ before_install:
   - sudo add-apt-repository -y ppa:h-rayflood/llvm
   - sudo apt-get update
   - sudo apt-get -y install clang-2.9
+  - which clang
   - clang --version
+  - /usr/bin/clang-2.9 --version
   
 install: true
 
