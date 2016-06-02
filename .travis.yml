@@ -7,14 +7,14 @@ dist: trusty
 before_install:
   - sudo add-apt-repository -y ppa:h-rayflood/llvm
   - sudo apt-get update
-  - sudo apt-get -y install clang-2.9
+  - sudo apt-get -y install clang-3.6
   - echo $PATH
   - which clang
   - export PATH=`echo $PATH | sed -e 's/:\/usr\/local\/clang-3.5.0\/bin//g'`
   - echo $PATH
   - which clang
   - clang --version
-  - /usr/bin/clang-2.9 --version
+  - /usr/bin/clang-3.6 --version
   
 install: true
 
