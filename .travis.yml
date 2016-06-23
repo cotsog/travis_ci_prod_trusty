@@ -1,15 +1,12 @@
 # Trigger
-language: go
+language: java
 
 sudo: required
 dist: trusty
 
-before_install:
-  - rabbitmqctl status || true
-  - rabbitmqctl stop || true
-  - rabbitmqctl status || true
-  - sudo rabbitmqctl stop || true
-  - sudo rabbitmqctl status || true
+addons:
+  host: short-hostname
+  hostname: short-hostname
   
 install: true
 
