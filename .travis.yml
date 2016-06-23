@@ -5,7 +5,7 @@ sudo: required
 dist: trusty
 
 addons:
-  host: short-hostname
+  hosts: short-hostname
   hostname: short-hostname
   
 install: true
