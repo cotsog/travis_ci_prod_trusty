@@ -1,13 +1,17 @@
-# Trigger
-language: java
-
 sudo: required
-dist: trusty
 
-addons:
-  hosts: short-hostname
-  hostname: short-hostname
-  
+services:
+  - docker
+
+language: python
+python:
+  - "2.7"
+
 install: true
 
-script: true
+script:
+  - docker --version
+  - docker-compose --version
+  - pip install docker-compose
+  - docker --version
+  - docker-compose --version
