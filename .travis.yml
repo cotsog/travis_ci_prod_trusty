@@ -2,8 +2,7 @@ language: php
 sudo: required
 dist: trusty
 
-php:
-  - hhvm-nightly
+php: hhvm-nightly
   
 matrix:
   include:
