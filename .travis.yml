@@ -1,17 +1,10 @@
+language: php
 sudo: required
+dist: trusty
 
-services:
-  - docker
-
-language: python
-python:
-  - "2.7"
-
-install: true
-
-script:
-  - docker --version
-  - docker-compose --version
-  - pip install docker-compose
-  - docker --version
-  - docker-compose --version
+php:
+  - hhvm-nightly
+  
+matrix:
+  include:
+    - group: edge
