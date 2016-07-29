@@ -1,11 +1,9 @@
-language: ruby
 sudo: required
-dist: trusty
-
+services:
+  - docker
 install: true
-
 script:
-  - docker --version
+  - docker version
   - sudo apt-get update -qq
-  - sudo apt-get update docker-engine
-  - docker --version
+  - sudo apt-get -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confnew install docker-engine
+  - docker version
