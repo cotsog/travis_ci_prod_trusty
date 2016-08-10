@@ -12,4 +12,6 @@ script:
   - sudo /etc/init.d/mongodb status
   - sudo service mongodb status
   - mongo --eval "printjson(db.serverStatus())"
+  - mongo --eval "printjson(db.runCommand({whatsmyuri : 1}))"
+  - sudo lsof -iTCP -sTCP:LISTEN | grep mongo
   
