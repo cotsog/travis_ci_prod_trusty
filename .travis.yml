@@ -1,9 +1,14 @@
 sudo: required
-dist: trusty
+dist: precise
+
+language: ruby
+
+services:
+  - mongodb
 
 install: true
 script:
-  - sudo gem install pkgr
-  - pkgr --version
-  - sudo pkgr --version
+  - (ps -edaf | grep mongo | grep -v grep)  || true
+  - /etc/init.d/mongod status || true
+  - service mongod status || true
   
