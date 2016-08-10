@@ -9,6 +9,6 @@ services:
 install: true
 script:
   - (ps -edaf | grep mongo | grep -v grep)  || true
-  - /etc/init.d/mongodb status || true
-  - service mongodb status || true
+  - sudo /etc/init.d/mongodb status || true
+  - sudo service mongodb status || true
   
