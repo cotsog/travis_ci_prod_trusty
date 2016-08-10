@@ -1,17 +1,17 @@
 sudo: required
 dist: trusty
 
-language: ruby
+language: node_js
 
 services:
   - docker
 
 install: true
 script:
-  - (ps -edaf | grep mongo | grep -v grep)
-  - sudo /etc/init.d/mongodb status
-  - sudo service mongodb status
-  - mongo --eval "printjson(db.serverStatus())"
-  - mongo --eval "printjson(db.serverCmdLineOpts())"
-  - sudo lsof -iTCP -sTCP:LISTEN | grep mongo
+  # - (ps -edaf | grep mongo | grep -v grep)
+  # - sudo /etc/init.d/mongodb status
+  # - sudo service mongodb status
+  # - mongo --eval "printjson(db.serverStatus())"
+  # - mongo --eval "printjson(db.serverCmdLineOpts())"
+  - sudo lsof -iTCP -sTCP:LISTEN | grep 27017
   
