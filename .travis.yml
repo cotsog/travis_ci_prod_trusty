@@ -1,10 +1,10 @@
 sudo: required
-dist: precise
+dist: trusty
 
 language: ruby
 
 services:
-  - mongodb
+  - docker
 
 install: true
 script:
