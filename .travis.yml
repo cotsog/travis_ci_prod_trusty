@@ -1,8 +1,9 @@
 sudo: required
-services:
-  - docker
+dist: trusty
 
 install: true
 script:
-  - docker-compose --version
+  - sudo gem install pkgr
+  - pkgr --version
+  - sudo pkgr --version
   
