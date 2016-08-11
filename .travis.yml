@@ -1,4 +1,4 @@
-language: php
+language: nodenode
 
 matrix:
   include:
@@ -8,7 +8,4 @@ matrix:
       dist: trusty
 
 install: true
-script:
-  - php -S localhost:8000 > /dev/null &
-  - sleep 5
-  - curl localhost:8000
+script: true
