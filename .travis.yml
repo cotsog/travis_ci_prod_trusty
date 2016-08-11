@@ -1,6 +1,8 @@
 sudo: required
 dist: trusty
 
+language: ruby
+
 before_install:
   - export MYSQL_APT_CONFIG_FILE=mysql-apt-config_0.7.2-1_all.deb
   - wget http://dev.mysql.com/get/$MYSQL_APT_CONFIG_FILE
