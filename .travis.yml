@@ -4,12 +4,10 @@ matrix:
   include:
     - sudo: required
       dist: trusty
-    - sudo: required
-      dist: precise
 
 services:
-  - cassandra
+  - docker
   
 install: true
 
-script: true
+script: docker --version
