@@ -3,11 +3,10 @@ language: ruby
 matrix:
   include:
     - sudo: required
+      dist: precise
+    - sudo: required
       dist: trusty
-
-services:
-  - docker
   
 install: true
 
-script: docker --version
+script: sudo cat /etc/hosts
