@@ -1,12 +1,9 @@
-language: ruby
+language: php
 
-matrix:
-  include:
-    - sudo: required
-      dist: precise
-    - sudo: required
-      dist: trusty
+services:
+  - docker
   
 install: true
 
-script: sudo cat /etc/hosts
+script:
+  - /etc/init.d/apparmor teardown && restart docker
