@@ -19,5 +19,6 @@ services:
 install: true
 
 script:
+  - cat -A /etc/hosts
   - getent hosts localhost
   - mongo --eval "printjson(db.serverStatus())"
