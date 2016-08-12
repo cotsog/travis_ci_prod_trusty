@@ -1,11 +1,22 @@
-language: php
+language: ruby
+
+matrix:
+  include:
+    - sudo: required
+      dist: precise
+    - sudo: required
+      dist: trusty
+    - sudo: required
+      dist: precise
+      group: edge
+    - sudo: required
+      dist: trusty
+      group: edge
 
 services:
-  - docker
+  - mongodb
   
 install: true
 
 script:
-  - /etc/init.d/apparmor teardown || true
-  - sudo /etc/init.d/apparmor teardown || true
-  - restart docker || true
+  - mongo --eval "printjson(db.serverStatus())"
