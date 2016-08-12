@@ -19,4 +19,5 @@ services:
 install: true
 
 script:
+  - getent hosts localhost
   - mongo --eval "printjson(db.serverStatus())"
