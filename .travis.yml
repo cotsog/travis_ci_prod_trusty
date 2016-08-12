@@ -6,4 +6,6 @@ services:
 install: true
 
 script:
-  - /etc/init.d/apparmor teardown && restart docker
+  - /etc/init.d/apparmor teardown || true
+  - sudo /etc/init.d/apparmor teardown || true
+  - restart docker || true
