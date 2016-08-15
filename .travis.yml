@@ -14,11 +14,9 @@ matrix:
       group: edge
 
 services:
-  - mongodb
+  - cassandra
   
 install: true
 
 script:
-  - cat -A /etc/hosts
-  - getent hosts localhost
-  - mongo --eval "printjson(db.serverStatus())"
+  - nodetool status
