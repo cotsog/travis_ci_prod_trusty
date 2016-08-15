@@ -20,3 +20,4 @@ install: true
 
 script:
   - nodetool status
+  - sudo service cassandra status
