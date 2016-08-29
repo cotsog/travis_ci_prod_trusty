@@ -1,10 +1,7 @@
 language: ruby
-
+rvm: 2.0.0
 sudo: false
-  
-install: true
-
-script: true
-
+script: echo "starting build" && true
+install: gem install dpl
 env:
   global: CI_HOME=`pwd`/../../
