@@ -5,5 +5,10 @@ rvm:
 sudo: false
 script: echo "starting build" && true
 install: gem install dpl
+before_deploy:
+  - export PATH="$PATH:$HOME/.rvm/bin"
+  - zip -r build *
+  - mkdir -p dpl_cd_upload
+  - mv build.zip dpl_cd_upload/build.zip
 env:
   global: CI_HOME=`pwd`/../../
