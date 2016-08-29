@@ -1,23 +1,7 @@
 language: ruby
 
-matrix:
-  include:
-    - sudo: required
-      dist: precise
-    - sudo: required
-      dist: trusty
-    - sudo: required
-      dist: precise
-      group: edge
-    - sudo: required
-      dist: trusty
-      group: edge
-
-services:
-  - cassandra
+sudo: false
   
 install: true
 
-script:
-  - nodetool status
-  - sudo service cassandra status
+script: true
