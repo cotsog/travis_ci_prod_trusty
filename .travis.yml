@@ -1,18 +1,9 @@
-language: python
+language: cpp
 dist: trusty
 sudo: required
-services:
-- docker
-addons:
-  hosts:
-  - ci_head_1
-  - ci_compute_1
 install:
-- pwd
-- which python
+- sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+- sudo apt-get update
 script:
-- df -h
-env:
-  global: DOCKER_COMPOSE_VERSION=1.6.0
-  matrix: OS=centos-6.7 CONDA_BUILD_UPLOAD=true
-python: '2.7'
+- sudo apt-get gcc-6
+- gcc --version
