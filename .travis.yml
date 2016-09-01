@@ -2,7 +2,7 @@ language: cpp
 dist: trusty
 sudo: required
 install:
-- sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+- sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
 - sudo apt-get update
 script:
 - sudo apt-get gcc-6
