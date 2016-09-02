@@ -16,4 +16,7 @@ env:
   global: DOCKER_COMPOSE_VERSION=1.6.0
   matrix: OS=centos-6.7 CONDA_BUILD_UPLOAD=true
 python: '2.7'
-group: edge
+matrix:
+  include:
+    - group: stable
+    - group: edge
