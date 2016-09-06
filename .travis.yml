@@ -1,22 +1,86 @@
-language: python
-dist: trusty
+---
+language: cpp
+os: linux
 sudo: required
-services:
-- docker
+dist: trusty
+compiler: gcc
+cache: apt
+env: BTYPE="-DCMAKE_BUILD_TYPE=Debug"
 addons:
-  hosts:
-  - ci_head_1
-  - ci_compute_1
+  apt:
+    packages:
+    - libboost-dev
+    - libboost-thread-dev
+    - libboost-system-dev
+    - libboost-filesystem-dev
+    - libgmp-dev
+    - libmpfr-dev
+    - libcgal-dev
+    - libqt4-dev
+    - libqglviewer-dev
+    - libxerces-c-dev
+    - libassimp-dev
+    - libopenscenegraph-dev
+    - libeigen3-dev
+    - libinsighttoolkit3-dev
+    - libgdcm2-dev
+    - libopencv-dev
+    - doxygen
+    - graphviz
 install:
-- pwd
-- which python
+- export TRAVIS=YES
+- cmake --version
+- wget https://sourceforge.net/projects/iqa/files/1.1.2%20Release/iqa_1.1.2_src.tar.gz
+- tar zxf iqa_1.1.2_src.tar.gz; cd iqa_1.1.2
+- make RELEASE=1 && cd ..
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export BIQA="-DIQA_INCLUDE_DIR=/home/travis/build/MEPP-team/Gharial/iqa_1.1.2/include
+  -DIQA_LIBRARY_RELEASE=/home/travis/build/MEPP-team/Gharial/iqa_1.1.2/build/release/libiqa.a";
+  fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export BIQA="-DIQA_INCLUDE_DIR=/Users/travis/build/MEPP-team/Gharial/iqa_1.1.2/include
+  -DIQA_LIBRARY_RELEASE=/Users/travis/build/MEPP-team/Gharial/iqa_1.1.2/build/release/libiqa.a";
+  fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export DISPLAY=:99.0; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sh -e /etc/init.d/xvfb start; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -y libvtk5-dev;
+  fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export BITK="-DITK_DIR=/usr/lib/InsightToolkit";
+  fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://www.openmesh.org/media/Releases/6.0/OpenMesh-6.0.tar.gz;
+  fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then tar zxf OpenMesh-6.0.tar.gz; cd OpenMesh-6.0;
+  mkdir buildR && cd buildR; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cmake .. -DCMAKE_BUILD_TYPE=Release
+  -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc -DOPENMESH_BUILD_PYTHON_BINDINGS=FALSE
+  -DCMAKE_RULE_MESSAGES=OFF; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then make && sudo make install && cd .. &&
+  cd ..; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install open-mesh; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt libqglviewer xerces-c
+  assimp doxygen graphviz; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo ln -s "/usr/local/Cellar/libqglviewer/2.6.3/lib/QGLViewer.framework"
+  "/Library/Frameworks/QGLViewer.framework"; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install open-scene-graph; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install eigen; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install homebrew/science/insighttoolkit;
+  fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install vtk; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install homebrew/science/opencv;
+  fi
 script:
-- df -h
-env:
-  global: DOCKER_COMPOSE_VERSION=1.6.0
-  matrix: OS=centos-6.7 CONDA_BUILD_UPLOAD=true
-python: '2.7'
-matrix:
-  include:
-    - group: stable
-    - group: edge
+- mkdir build && cd build
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cmake .. $BTYPE $BIQA $BITK; cmake ..
+  $BTYPE $BIQA $BITK; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cmake .. $BTYPE $BIQA; cmake .. $BTYPE
+  $BIQA; fi
+- make
+- make test
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew unlink qt; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt5; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ..; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then mkdir build_osx_qt5 && cd build_osx_qt5
+  && cmake .. $BTYPE $BIQA -DBUILD_MeppQt4_temp=FALSE -DWITH_QT5=YES -DQT5_DIR=/usr/local/opt/qt5;
+  cmake .. $BTYPE $BIQA -DBUILD_MeppQt4_temp=FALSE -DWITH_QT5=YES -DQT5_DIR=/usr/local/opt/qt5;
+  fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make; fi
+group: stable
