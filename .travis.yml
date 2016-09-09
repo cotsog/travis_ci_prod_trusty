@@ -9,3 +9,12 @@ services:
 install: rvm 2.2.5 --fuzzy do ruby -S gem install dpl
 
 script: true
+
+deploy:
+  provider: elasticbeanstalk
+  app: push-agent
+  env: pushAgent-healthEndpoint
+  bucket_name: alpha-api-poc-bucket
+  region: eu-west-1
+  access_key_id: access_key_id
+  secret_access_key: secret_access_key
