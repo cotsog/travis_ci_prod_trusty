@@ -1,17 +1,37 @@
-language: ruby
-
 sudo: required
 dist: trusty
 
-install: true
+language: cpp
+
+addons:
+  apt:
+    packages:
+      - g++-5
+    sources:
+      - ubuntu-toolchain-r-test
+
+before_install:
+    - sudo apt-get update
+
+install:
+    - sudo apt-get install libboost-dev
+    - sudo apt-get install doxygen
+    - sudo apt-get install libgtest-dev
+    - sudo apt-get install valgrind
+    - ls -al /usr/src
+    - cd /usr/src/gtest
+    - sudo cmake CMakeLists.txt
+    - sudo make
+    - sudo cp *.a /usr/lib
+    - cd -
+
+before_script:
+    - uname -a
+    - printenv | sort
+    - apt list --installed
+    - make versions
 
 script:
-- sudo service --status-all
-- sudo free -m -t
-- sudo /etc/init.d/mysql stop
-- sudo /etc/init.d/postgresql stop
-- sudo /etc/init.d/couchdb stop
-- sudo /etc/init.d/redis-server stop
-- sudo /etc/init.d/memcached stop
-- sudo free -m -t
-- sudo service --status-all
+    - date
+    - ls -al
+    - make test
