@@ -5,6 +5,7 @@ language: python
 
 matrix:
   include:
+    - group: stable
     - group: edge
 
 install: true
