@@ -1,37 +1,11 @@
 sudo: required
 dist: trusty
 
-language: cpp
+language: python
 
-addons:
-  apt:
-    packages:
-      - g++-5
-    sources:
-      - ubuntu-toolchain-r-test
+matrix:
+  include:
+    - group: edge
 
-before_install:
-    - sudo apt-get update
-
-install:
-    - sudo apt-get install libboost-dev
-    - sudo apt-get install doxygen
-    - sudo apt-get install libgtest-dev
-    - sudo apt-get install valgrind
-    - ls -al /usr/src
-    - cd /usr/src/gtest
-    - sudo cmake CMakeLists.txt
-    - sudo make
-    - sudo cp *.a /usr/lib
-    - cd -
-
-before_script:
-    - uname -a
-    - printenv | sort
-    - apt list --installed
-    - make versions
-
-script:
-    - date
-    - ls -al
-    - make test
+install: true
+script: true
