@@ -1,12 +1,11 @@
-language: ruby
-
+language: php
+sudo:required
+dist:trusty
+php: hhvm-3.12
+group: stable
 matrix:
   include:
-    - sudo: false
-    - sudo: required
-      dist: precise
-    - sudo: required
-      dist: trusty
+    - group: edge
 
 install: true
-script: rvm list
+script: true
