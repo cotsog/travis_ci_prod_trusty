@@ -1,11 +1,11 @@
 language: php
 sudo: required
 dist: trusty
-php: hhvm-3.12
+php: hhvm
 group: stable
 matrix:
   include:
     - group: edge
 
-install: true
+install: phpenv global hhvm-3.12
 script: true
