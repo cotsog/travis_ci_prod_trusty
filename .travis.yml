@@ -1,6 +1,6 @@
 language: php
-sudo:required
-dist:trusty
+sudo: required
+dist: trusty
 php: hhvm-3.12
 group: stable
 matrix:
