@@ -3,4 +3,10 @@ sudo: required
 dist: trusty
 
 install: true
-script: java -version
+script:
+  - echo $PATH
+  - echo $JAVA_HOME
+  - java -version
+  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
+  - export PATH=$JAVA_HOME:$PATH
+  - java -version
