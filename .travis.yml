@@ -1,11 +1,6 @@
-language: php
+language: scala
 sudo: required
 dist: trusty
-php: hhvm
-group: stable
-matrix:
-  include:
-    - group: edge
 
-install: phpenv global hhvm-3.12
-script: true
+install: true
+script: java -version
