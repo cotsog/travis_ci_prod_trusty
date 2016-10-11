@@ -4,9 +4,7 @@ dist: trusty
 
 install: true
 script:
-  - echo $PATH
-  - echo $JAVA_HOME
   - java -version
-  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
-  - export PATH=$JAVA_HOME:$PATH
+  - sudo mv /usr/lib/jvm/java-8-oracle-amd64 /usr/lib/jvm/java-8-oracle-amd64-1.8.0_65
+  - sudo mv /usr/lib/jvm/java-8-oracle /usr/lib/jvm/java-8-oracle-amd64
   - java -version
