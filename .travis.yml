@@ -1,6 +1,12 @@
-language: python
+language: ruby
 sudo: required
 dist: trusty
-
+cache: bundler
+env: JRUBY_OPTS="--dev -J-Djruby.launch.inproc=true -J-Xmx1024M"
+rvm: jruby
+addons:
+  apt:
+    packages:
+      - haveged
+script: true
 install: true
-script: docker-compose --version
