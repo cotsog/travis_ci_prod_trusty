@@ -3,7 +3,7 @@ sudo: required
 dist: trusty
 cache: bundler
 env: JRUBY_OPTS="--dev -J-Djruby.launch.inproc=true -J-Xmx1024M"
-rvm: jruby
+rvm: jruby-1.7.26
 addons:
   apt:
     packages:
