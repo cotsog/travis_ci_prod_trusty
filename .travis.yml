@@ -14,8 +14,7 @@ before_install:
 - tar -xzf neo4j-community-2.3.2-unix.tar.gz
 
 install: true
-script: true
-after_script: echo ${archive_url}
+script: python -c 'import site; site.getsitepackages()'
 
 cache:
   pip: true
