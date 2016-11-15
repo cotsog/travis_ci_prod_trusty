@@ -13,6 +13,9 @@ before_install:
 - wget dist.neo4j.org/neo4j-community-2.3.2-unix.tar.gz
 - tar -xzf neo4j-community-2.3.2-unix.tar.gz
 
+install: true
+script: true
+
 cache:
   pip: true
   directories:
