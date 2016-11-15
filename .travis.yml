@@ -15,6 +15,7 @@ before_install:
 
 install: true
 script: true
+after_script: echo ${archive_url}
 
 cache:
   pip: true
