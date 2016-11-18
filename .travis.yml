@@ -1,27 +1,7 @@
 sudo: required
 dist: trusty
-language: elixir
-elixir: 1.3.3
-otp_release: 19.0
 
-before_install:
-- echo "deb http://debian.datastax.com/datastax-ddc 3.4 main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
-- curl -L https://debian.datastax.com/debian/repo_key | sudo apt-key add -
-- sudo apt-get update
-- sudo apt-get install datastax-ddc
-- pip install cqlsh
-- wget dist.neo4j.org/neo4j-community-2.3.2-unix.tar.gz
-- tar -xzf neo4j-community-2.3.2-unix.tar.gz
-
-install: true
-script:
-  - python -c 'import site; print site.getsitepackages()'
-  - ls -al /opt/python/2.7.10/lib/python2.7/site-packages
-
-cache:
-  pip: true
-  directories:
-    - _build
-    - deps
-    - /opt/python/2.7.10/lib/python2.7/site-packages
-
+install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq --no-install-recommends mariadb-client mariadb-server
+script: true
