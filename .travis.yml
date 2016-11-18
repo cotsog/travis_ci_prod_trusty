@@ -1,7 +1,16 @@
 sudo: required
 dist: trusty
+group: beta
+language: php
+php: hhvm
+addons:
+  apt:
+    packages:
+    - s3cmd
+    - apache2
+    - mysql-server-5.5
+    - mysql-client-core-5.5
+    - mysql-client-5.5
 
-install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq --no-install-recommends mariadb-client mariadb-server
+install: true
 script: true
