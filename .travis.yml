@@ -6,4 +6,7 @@ matrix:
   include:
     - jdk: false
     - jdk: oraclejdk8
+    
+install: true
+script: true
 
