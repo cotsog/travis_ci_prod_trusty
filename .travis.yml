@@ -8,5 +8,7 @@ matrix:
     - jdk: oraclejdk8
     
 install: true
-script: java -version
+script:
+  - java -version
+  - ls -al /usr/lib/jvm
 
