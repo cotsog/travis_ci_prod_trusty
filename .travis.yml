@@ -8,5 +8,5 @@ matrix:
     - jdk: oraclejdk8
     
 install: true
-script: true
+script: java -version
 
