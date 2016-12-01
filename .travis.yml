@@ -1,14 +1,11 @@
 sudo: required
 dist: trusty
-language: php
+language: ruby
 
-matrix:
-  include:
-    - jdk: false
-    - jdk: oraclejdk8
+services:
+  - mysql
     
 install: true
 script:
-  - java -version
-  - ls -al /usr/lib/jvm
+  - initctl stop mysql-5.6
 
