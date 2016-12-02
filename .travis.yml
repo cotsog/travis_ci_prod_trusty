@@ -8,5 +8,5 @@ matrix:
     - group: deprecated
     
 install: true
-script: true
+script: rvm list
 
