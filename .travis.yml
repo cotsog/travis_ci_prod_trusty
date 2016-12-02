@@ -9,15 +9,15 @@ matrix:
     dist: trusty
     sudo: required
     group: deprecated
-    services: [mysql]
 
-addons:
-  apt:
-    packages:
-    - mysql-server-5.6
-    - mysql-client-core-5.6
-    - mysql-client-5.6
+before_install:	
+  - sed -i.bak '/BUNDLE_BUILD__MYSQL2/d' ./.bundle/config
+  - sudo apt-get remove -y --purge mysql-server mysql-common mysql-client
+  - sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5072E1F5
+  - "echo \"deb http://repo.mysql.com/apt/ubuntu/ trusty mysql-5.7\" | sudo tee -a /etc/apt/sources.list.d/mysql.list"
+  - sudo apt-get -qq update
+  - sudo apt-get install -y mysql-server libmysqlclient-dev
+  - sudo mysql -v -uroot -e "CREATE USER 'travis'@'localhost'; GRANT ALL PRIVILEGES ON *.* TO 'travis'@'localhost';"
 
-script:
-  - sudo mysql -u root -e 'show databases'
-  - sudo mysql -u root -e 'SELECT user FROM mysql.user'
+install: true
+script: true
