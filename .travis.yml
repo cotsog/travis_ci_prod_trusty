@@ -2,10 +2,11 @@ sudo: required
 dist: trusty
 language: ruby
 
-services:
-  - mysql
+matrix:
+  include:
+    - group: stable
+    - group: deprecated
     
 install: true
-script:
-  - sudo service mysql-5.6 stop
+script: true
 
