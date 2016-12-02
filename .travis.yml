@@ -12,4 +12,4 @@ matrix:
 
 script:
   - sudo mysql -u root -e 'show databases'
-  - sudo mysql -u root -e 'show users'
+  - sudo mysql -u root -e 'SELECT user FROM mysql.user'
