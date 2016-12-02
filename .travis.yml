@@ -1,12 +1,23 @@
-sudo: required
-dist: trusty
-language: ruby
+language: node_js
 
 matrix:
   include:
-    - group: stable
-    - group: deprecated
-    
-install: true
-script: rvm list
+  - os: linux
+    dist: trusty
+    sudo: required
+  - os: linux
+    dist: trusty
+    sudo: required
+    group: deprecated
 
+
+addons:
+  apt:
+    packages:
+    - mysql-server-5.6
+    - mysql-client-core-5.6
+    - mysql-client-5.6
+
+script:
+  - sudo mysql -u root -e 'show databases'
+  - sudo mysql -u root -e 'show users'
