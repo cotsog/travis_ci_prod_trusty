@@ -1,23 +1,9 @@
-language: node_js
+language: python
 
-matrix:
-  include:
-  - os: linux
-    dist: trusty
-    sudo: required
-  - os: linux
-    dist: trusty
-    sudo: required
-    group: deprecated
+dist: trusty
+sudo: required
 
-before_install:	
-  - sed -i.bak '/BUNDLE_BUILD__MYSQL2/d' ./.bundle/config || true
-  - sudo apt-get remove -y --purge mysql-server mysql-common mysql-client
-  - sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5072E1F5
-  - "echo \"deb http://repo.mysql.com/apt/ubuntu/ trusty mysql-5.7\" | sudo tee -a /etc/apt/sources.list.d/mysql.list"
-  - sudo apt-get -qq update
-  - sudo apt-get install -y mysql-server libmysqlclient-dev
-  - sudo mysql -v -uroot -e "CREATE USER 'travis'@'localhost'; GRANT ALL PRIVILEGES ON *.* TO 'travis'@'localhost';"
+python: 2.7.9
 
 install: true
-script: true
+script: python -V
