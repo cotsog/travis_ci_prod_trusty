@@ -3,6 +3,8 @@ language: ruby
 dist: trusty
 sudo: required
 
+group: deprecated
+
 addons:
   postgresql: 9.5
 
