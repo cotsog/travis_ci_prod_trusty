@@ -1,9 +1,14 @@
-language: python
+language: ruby
 
 dist: trusty
 sudo: required
 
-python: 2.7.9
+addons:
+  postgresql: 9.5
 
+before_install:
+  - sudo apt-get -y remove --purge postgis-2.3
+  - sudo apt-get -y autoremove
+  - sudo apt-get -y install postgis-2.1
 install: true
-script: python -V
+script: true
