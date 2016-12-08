@@ -9,7 +9,7 @@ before_install:
   - sudo rm -rf /etc/mysql /var/lib/mysql
   - sudo apt-get -y autoremove
   - sudo apt-get -y autoclean
-  - sudo apt-get -y install mysql-client-5.5 mysql-client-5.5 mysql-common-5.5 mysql-server-core-5.5 mysql-client-core-5.5
+  - sudo apt-get -y install mysql-server-5.5 mysql-client-5.5
   - sudo apt-get -y update
   
 install: true
