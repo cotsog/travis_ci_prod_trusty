@@ -1,20 +1,16 @@
 language: ruby
 
 dist: trusty
-sudo: required
 
-before_install:
-  - mysql -V
-  - mysql -e 'SHOW VARIABLES LIKE "%version%";'
+matrix:
+  include:
+    - sudo: required
+    - sudo: false
+    
+services:
+  - mysql
   
-install:
-  - sudo service mysql stop
-  - sudo apt-get -y purge mysql-server mysql-client mysql-common mysql-server-core-5.6 mysql-client-core-5.6
-  - sudo rm -rf /etc/mysql /var/lib/mysql
-  - sudo apt-get -y autoremove
-  - sudo apt-get -y autoclean
-  - sudo apt-get -y install mysql-server-5.5 mysql-client-5.5 mysql-common mysql-server-5.5 mysql-server-core-5.5 mysql-client-core-5.5
-  - sudo apt-get -y update
+install: true
   
 script:
   - mysql -V
