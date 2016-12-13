@@ -2,16 +2,11 @@ language: ruby
 
 dist: trusty
 
-matrix:
-  include:
-    - sudo: required
-    - sudo: false
+sudo: required
     
 services:
-  - mysql
+  - postgres
   
-install: true
+install: sudo apt-get install -y postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-scripts postgis
   
-script:
-  - mysql -V
-  - mysql -e 'SHOW VARIABLES LIKE "%version%";'
+script: true
