@@ -7,6 +7,9 @@ sudo: required
 services:
   - postgres
   
+addons:
+  postgresql: "9.5"
+  
 install: sudo apt-get install -y postgresql-9.5-postgis-2.2 postgresql-9.5-postgis-scripts postgis
   
 script: true
