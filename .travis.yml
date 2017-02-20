@@ -1,19 +1,16 @@
-language: c
+language: python
 
-services:
-  - docker
+python: 2.7
 
 matrix:
   include:
-    - os: linux
-      sudo: required
-      env: PLATFORM=ubuntu/precise
-    - os: linux
-      sudo: required
-      env: PLATFORM=ubuntu/trusty
+    - sudo: required
+      dist: precise
+      env: SUDO=required DIST=precise
+    - sudo: required
+      dist: trusty
+      env: SUDO=required DIST=trusty
 
 install: true
 script:
-  - docker --version
-  - docker-compose --version
-  - make -C ci $PLATFORM
+  - sudo apt-get install swig libffi-dev libxml2-dev libxslt-dev
