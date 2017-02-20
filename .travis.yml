@@ -13,4 +13,5 @@ matrix:
 
 install: true
 script:
+  - sudo apt-get update -qq
   - sudo apt-get install swig libffi-dev libxml2-dev libxslt-dev
