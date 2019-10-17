@@ -1,17 +1,11 @@
-language: python
-
-python: 2.7
-
-matrix:
-  include:
-    - sudo: required
-      dist: precise
-      env: SUDO=required DIST=precise
-    - sudo: required
-      dist: trusty
-      env: SUDO=required DIST=trusty
+language: perl
+perl: 5.26-shrplib
 
 install: true
 script:
-  - sudo apt-get update -qq
-  - sudo apt-get install swig libffi-dev libxml2-dev libxslt-dev
+  - python -V
+  - which pip || sudo easy_install pip
+  - pip -V
+
+notifications:
+  email: false
